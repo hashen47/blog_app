@@ -25,3 +25,17 @@ function dd($value)
     echo "</pre>";
     die();
 }
+
+
+// linking a css file 
+function linkCss($href)
+{
+    return "<link rel='stylesheet' href='{$href}' />";
+}  
+
+
+// linking js file
+function linkJs($src)
+{
+    return "<script type='text/javascript' defer src='{$src}'></script>";
+}  
