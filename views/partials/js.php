@@ -1,0 +1,1 @@
+<script defer src="dist/bootstrap.min.js"></script>
