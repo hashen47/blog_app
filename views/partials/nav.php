@@ -9,9 +9,13 @@
                 <li class="nav-item">
                     <a href="/home" class="nav-link <?= (urlIs('/home')) ? 'active' : ''; ?>" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/posts" class="nav-link <?= (urlIs('/posts')) ? 'active' : ''; ?>" href="#">Posts</a>
-                </li>
+
+                <?php if(\Core\Database::authorized()): ?>
+                    <li class="nav-item">
+                        <a href="/posts" class="nav-link <?= (urlIs('/posts')) ? 'active' : ''; ?>" href="#">Posts</a>
+                    </li>
+                <?php endif; ?>
+
                 <li class="nav-item">
                     <a href="/profile" class="nav-link <?= (urlIs('/profile')) ? 'active' : ''; ?>" href="#">Profile</a>
                 </li>
@@ -21,7 +25,7 @@
             </ul>
 
             <form class="d-lg-flex list-unstyled text-secondary">
-                <?php if(! $logged) : ?>
+                <?php if(! \Core\Database::authorized()) : ?>
                     <li class="nav-item me-3">
                         <a href="/login" class="nav-link" style="<?= (urlIs('/login')) ? 'color:white !important;' : ''; ?>" href="#">Login</a>
                     </li>
