@@ -40,10 +40,10 @@ class Database {
     }
 
 
-    public function find($stmt, $params)
+    public function find($stmt, $params=[])
     {
-        $this->query($stmt);
-        $this->stmt->fetch();
+        $this->query($stmt, $params);
+        return $this->stmt->fetch();
     }
 
 
@@ -51,6 +51,36 @@ class Database {
     {
         $this->query($stmt,$params);
         return $this->stmt->fetchAll();
+    }
+
+
+    public function loging(?string $username, ?string $password) : array
+    {
+        $userCount = count($this->findAll("select * from user where name=:username", [":username" => $username ]));
+        if ($userCount == 0) {
+            $status = ["status" => "error", "msg" => "invalid username"];
+        } 
+        else {
+            $user = $this->find("select * from user where name=:username", [":username" => $username]);
+            $hash = $user["hash"];
+
+            if (!password_verify($password, $hash)) {
+                $status = ["status" => "error", "msg" => "username and password combination is invalid"];
+            }
+            else {
+                $_SESSION["uid"] = $user["uid"];
+                $status = ["status" => "success", "msg" => "successfully logged in"];
+            }
+        }
+
+        return $status;
+    }
+
+
+    public static function authorized()
+    {
+        if (isset($_SESSION["uid"])) return true;
+        return false;
     }
 }
 
