@@ -45,3 +45,11 @@ function linkJs($src)
 {
     return "<script type='text/javascript' defer src='{$src}'></script>";
 }  
+
+
+// make a json encoded response
+function response($code, $status, $msg)
+{
+    http_response_code($code);
+    return json_encode(["status" => $status, "msg" => $msg]);
+}
