@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-10 form-group m-3">
                     <label for="username" class="label"><b>USERNAME</b></label>
-                    <input class="form-control p-2" type="text" name="username" />
+                    <input class="form-control p-2" type="text" name="username" id="username" />
                 </div>
                 <div class="col-10 form-group m-3">
                     <label for="password" class="label"><b>PASSWORD</b></label>
