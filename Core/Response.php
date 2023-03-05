@@ -13,6 +13,8 @@ class Response
     const FORBIDDEN = 403;
 
     const UN_AUTHORIZED = 422;
+
+    const BAD_REQUEST = 400;
 }
 
 
