@@ -1,11 +1,3 @@
-<?php 
-
-    $cssLinks = [];
-    $jsLinks = [];
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

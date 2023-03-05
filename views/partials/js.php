@@ -1,1 +1,1 @@
-<script defer src="dist/bootstrap.min.js"></script>
+<script defer src="dist/js/bootstrap.min.js"></script>
