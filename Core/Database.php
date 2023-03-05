@@ -17,11 +17,19 @@ class Database {
 
     public function __construct()
     {
-        $config = http_build_query(require base_path("config.php"), "", ";");
-        $this->conn = new PDO("mysql:{$config}");
+        try 
+        {
+            $config = http_build_query(require base_path("config.php"), "", ";");
+            $this->conn = new PDO("mysql:{$config}");
 
-        // Set Attributes
-        $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            // Set Attributes
+            $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+            die();
+        }
     }
 
 
@@ -32,9 +40,17 @@ class Database {
     }
 
 
-    public function find($stmt)
+    public function find($stmt, $params)
     {
         $this->query($stmt);
+        $this->stmt->fetch();
+    }
+
+
+    public function findAll($stmt, $params = []) : array
+    {
+        $this->query($stmt,$params);
+        return $this->stmt->fetchAll();
     }
 }
 

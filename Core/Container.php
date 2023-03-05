@@ -24,6 +24,7 @@ class Container {
             throw new Exception("no matching binding found for {$key}");
         }
 
-        return $this->bindings[$key];
+        $func = $this->bindings[$key];
+        return call_user_func($func);
     }
 }

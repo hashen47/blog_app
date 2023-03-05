@@ -27,6 +27,12 @@ function dd($value)
 }
 
 
+function urlIs($url)
+{
+    return parse_url($_SERVER["REQUEST_URI"])["path"] === $url;
+}
+
+
 // linking a css file 
 function linkCss($href)
 {
