@@ -1,6 +1,9 @@
 <?php 
 
 
+session_start();
+
+
 require "../Core/functions.php";
 
 
