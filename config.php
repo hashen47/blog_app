@@ -3,7 +3,7 @@
 
 return [
     "host" => "localhost",
-    "dbname" => "planing",
+    "dbname" => "blog",
     "user" => "root",
     "pass" => ""
 ];
