@@ -24,8 +24,8 @@ window.addEventListener("load", () => {
                     commentBox.closest(".card").querySelector(".comments").insertAdjacentHTML("beforeend", `<p>${commentBox.value}</p>`);
                     commentBox.value = "";
 
-                    if (commentCount.innerText == "") commentCount.innerText = 1;
-                    else commentCount.innerText = Number(commentCount.innerText) + 1;
+                    if (commentCount.innerText.trim() == "No") commentCount.innerText = "1 ";
+                    else commentCount.innerText = Number(commentCount.innerText) + 1 + " ";
                 }
             })();
 
