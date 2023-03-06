@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
                 headers : {
                     "Content-Type" : "application/x-www-form-urlencoded"
                 },
-                body : `title=${title.value}&content=${content.innerText}`
+                body : `title=${title.value}&content=${content.value}`
             });
 
 
@@ -29,9 +29,9 @@ window.addEventListener("load", () => {
 
             if (resp.status == "success")
             {
-                alert(resp.output);
+                alert(resp.msg);
                 title.value = "";
-                content.innerText = "";
+                content.value = "";
             }
 
 
