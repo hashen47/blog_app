@@ -23,7 +23,7 @@
                         <div class="col d-flex align-items-center justify-content-end">
                             <?php if($uid == $userId): ?>
                                 <a class="btn btn-success me-2">Update</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <button pid="<?php echo $pid; ?>" class="btn btn-danger delete">Delete</button>
                             <?php endif; ?>
                         </div>
                     </div>

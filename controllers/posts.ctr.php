@@ -2,7 +2,7 @@
 
 
 $cssLinks = [];
-$jsLinks = ["js/comment.js"];
+$jsLinks = ["js/comment.js", "js/delete.js"];
 
 
 use Core\App;
