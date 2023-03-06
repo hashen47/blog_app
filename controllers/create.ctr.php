@@ -54,11 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $date = date("Y-m-d");
 
 
-    $db->find("insert into values post(title, content, uid, cdate) values (:title, :content, :uid, :cdate);", [
+    // calculate the puid
+    $puid = ++$db->find("select count(*) as c from post where uid=:uid", [":uid" => $uid])["c"];
+
+
+    $db->find("insert into post(title, content, uid, cdate, puid) values (:title, :content, :uid, :cdate, :puid);", [
         ":title" => $ptitle, 
         ":content" => $content, 
         ":uid" => $uid,
-        ":cdate" => $date
+        ":cdate" => $date,
+        ":puid" => $puid
     ]);
 
 
