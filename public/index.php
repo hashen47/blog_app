@@ -5,6 +5,7 @@ session_start();
 
 
 require "../Core/functions.php";
+require base_path("Core/Validator/vendor/autoload.php"); // external validator autoloader 
 
 
 spl_autoload_register(function($class) {
