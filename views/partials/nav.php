@@ -14,14 +14,16 @@
                     <li class="nav-item">
                         <a href="/posts" class="nav-link <?= (urlIs('/posts')) ? 'active' : ''; ?>" href="#">Posts</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="/profile" class="nav-link <?= (urlIs('/profile')) ? 'active' : ''; ?>" href="#">Profile</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/create" class="nav-link <?= (urlIs('/create')) ? 'active' : ''; ?>" href="#">Create</a>
+                    </li>
                 <?php endif; ?>
 
-                <li class="nav-item">
-                    <a href="/profile" class="nav-link <?= (urlIs('/profile')) ? 'active' : ''; ?>" href="#">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/create" class="nav-link <?= (urlIs('/create')) ? 'active' : ''; ?>" href="#">Create</a>
-                </li>
             </ul>
 
             <form class="d-lg-flex list-unstyled text-secondary">
