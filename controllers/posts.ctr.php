@@ -1,23 +1,24 @@
 <?php
 
 
+$cssLinks = [];
+$jsLinks = ["js/comment.js"];
+
+
 use Core\App;
 use Core\Container;
 use Core\Database;
 
 
-$cssLinks = [];
-$jsLinks = [];
-
-
-$userId = $_SESSION["uid"];
+$userId = (isset($_SESSION["uid"])) ? $_SESSION["uid"] : "";
 
 
 $db = App::resolve(Database::class);
 $posts = $db->findAll("
     select *, (select count(*) from plike where plike.pid=p.pid) as c from post as p 
-    inner join user as u on u.uid=p.puid
-    where p.puid=:uid;
+    inner join user as u on u.uid=p.uid
+    where p.uid=:uid    
+    order by p.pid desc;
 ", [ ":uid" => $userId ]);
 
 

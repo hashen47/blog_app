@@ -21,7 +21,7 @@
                             </a>
                         </div>
                         <div class="col d-flex align-items-center justify-content-end">
-                            <?php if($logged): ?>
+                            <?php if($uid == $userId): ?>
                                 <a class="btn btn-success me-2">Update</a>
                                 <button class="btn btn-danger">Delete</button>
                             <?php endif; ?>
